@@ -1,0 +1,315 @@
+.toggler {
+    position: relative;
+    top: 0px;
+    left: 586px;
+}
+
+div#test{width: 43% ! important;
+    left: 0px;
+    position: absolute;
+    top: 51px;
+}
+
+    * {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 15px; font-weight: bold;
+    padding: 10px;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+
+a{color: white; text-decoration: none;}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 20px 0px;
+    height: 100%;
+}
+
+#Home {background-color: #68bec5;}
+#News {background-color: #68bec5;}
+#Contact {background-color: #68bec5;}
+
+div.tab_protect{
+	border: 1px solid lightgray;
+    padding: 5px;
+}
+
+th {
+    background: #903737; text-align: center;
+}
+
+td{background: #d6a71f}
+
+.jumbotron.col-md-12 {
+    padding: 3px 0px 5px 0px;
+    margin-bottom: 0px;
+}
+
+span.chart{
+	color: #c31010; font-weight: bold;
+}
+
+img.logo {border-radius: 50px; max-width: 100% }
+img{max-width: 100%;}
+span.slogan{font-weight: bold;
+	position: relative;
+    top: 20px;
+}
+
+div.print_report{
+	margin-top: 10px;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+
+@media(max-width: 414px){
+	#Home {
+    margin-top: 128px;
+	}
+
+	div.tab_protect {
+    margin-top: 20px;
+	}
+
+	.toggler {
+    position: relative;
+    left: 154px;
+	}
+}
+
+button.btn_search {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    left: -32px;
+    border: 1px solid darkseagreen;
+}
+
+.fa.fa-search{color: black}
+span.place{font-size: 20px}
+a.view_more{font-size: 14px}
+
+.fa-search:before {
+    position: relative;
+    top: -27px;
+    left: 255px;
+}
+
+span.num_cam {
+    color: #ce0c0c;
+}
+
+/*css cho tab con trong item xem theo tỉnh, khu vực*/
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #e85f5f;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 20px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+ul.nav.nav-tabs {
+    margin-top: 10px;
+    border: 1px solid #8e8c8c;
+    background: #2d5656;
+    border-radius: 5px;
+}
+
+.cont_tabSub{
+    border: 1px solid #717bbf;
+}
+
+/*css cho menu*/
+/*.topnav {
+  overflow: hidden;
+  background-color: teal;
+  position: relative;
+    left: -613px;
+    font-weight: bold;
+    width: 1350px;
+}
+
+@media(max-width: 414px){
+    .topnav {
+        width: 932px;
+    }   
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.active {
+  background-color: #070771;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-size: 17px;    
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #555;
+  color: white;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child), .dropdown .dropbtn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown {float: none;}
+  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+*/
+
+div#tinh {
+    background: #d28c0b;
+    color: black;
+    padding: 15px 0px 6px 0px;
+}
+
+.tree.tree-folder-select, .tree-branch-children{
+  list-style-type: none;
+}
+
+.chart_place{font-weight: bold;font-size: 15px}
+
+div#Home, div.sub_tab {
+    padding-top: 20px;
+}
