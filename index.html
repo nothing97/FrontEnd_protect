@@ -21,6 +21,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/BootSideMenu.js"></script>
     <script type="text/javascript" src="js/treeview.js"></script>
+    <script type="text/javascript" src="js/modal.js"></script>
     <script src="http://www.fuelcdn.com/fuelux/3.7.3/js/fuelux.min.js"></script>
 
 
@@ -28,28 +29,6 @@
 </head>
 <body>
   <div class="container">
-   <!--  <div class="topnav col-md" id="myTopnav" >
-      <a href="#home" class="active">Nhập liệu </a>
-      <a href="#news">Quan trắc tổng hợp</a>
-      <a href="#contact">Thông tin dự báo</a>
-      <div class="dropdown">
-        <button class="dropbtn">Đối phó với bão và nước dâng 
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-      </div> 
-      <a href="#about">Quản lý xói lở bồi lắng</a>
-      <a href="#about">Hồ sơ</a>
-      <a href="#about">Báo cáo</a>
-      <a href="#about">Trợ giúp</a>
-      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-    </div> -->
-
-
     <div id="test" w3-include-html="inc/menu-template.html" class="col-md-9">
       <div class="jumbotron col-md-12">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ-MvhaGaSUkH_h2pCuhGrN5TaPZ0NnBp4YypgF8wbcaBGuA3N" class="col-md-3 logo">
@@ -90,7 +69,7 @@
           </div>
 
           <div class="col-md-12 warn_rain">
-            <p>Cảnh báo mưa <span class="chart">(0 trạm có mưa lớn)</span></p>
+            <p class="warning_rain">Cảnh báo mưa <span class="chart">(0 trạm có mưa lớn)</span></p>
           </div>
 
           <div class="table-responsive  col-md-12">          
@@ -98,7 +77,7 @@
               <thead>
                 <tr>
                   <th>STT</th>
-                  <th>Tên trạm</th>
+                  <th scope="col">Tên trạm</th>
                   <th>X:21/10</th>
                   <th>X:21/10</th>
                   <th>X:17/10</th>
@@ -106,7 +85,8 @@
                   <th>Mã trạm</th>
                   <th>Theo tỉnh</th>
                   <th>Theo lưu vực</th>
-                  <th>BĐ</th>
+                  <th>Báo Động</th>
+                  <th>Xem thêm</th>
                 </tr>
               </thead>
               <tbody>
@@ -117,15 +97,16 @@
                 <td>An Giang</td>
                 <td>1</td>
                 <td>1</td>
-                <td>1</td>
-                <td>1</td>
-                <td>1</td>
+                <td><i class="fas fa-tint"></i></td>
+                <td><i class="fas fa-tint"></i></td>
+                <td><i class="fas fa-tint"></i></td>
+                <td><a href="">Chi tiết</a></td>
               </tbody>
             </table>
             </div>
 
           <div class="col-md-12 warn_rain">
-            <p>Cảnh báo mực nước sông <span class="chart">(1 trạm có mực nước lớn)</span></p>
+            <p class="warning">Cảnh báo mực nước sông <span class="chart">(1 trạm có mực nước lớn)</span></p>
           </div>
 
           <div class="table-responsive  col-md-12">          
@@ -160,7 +141,7 @@
             </div>
           
           <div class="col-md-12 warn_rain">
-            <p>Cảnh báo mực nước hồ <span class="chart">(9 hồ có mực nước lớn)</span></p>
+            <p class="warning">Cảnh báo mực nước hồ <span class="chart">(9 hồ có mực nước lớn)</span></p>
           </div>
 
           <div class="table-responsive  col-md-12">          
@@ -194,7 +175,7 @@
             </table>
             </div>
 
-          <div class="col-md-4 btn btn-primary print_report"><i class="fas fa-print"></i> In báo cáo
+          <div class="col-md-3 btn btn-primary print_report"><i class="fas fa-print"></i> In báo cáo
           </div>
         </div>
 
@@ -202,7 +183,7 @@
         <div id="News" class="tabcontent col-md-12 sub_tab">
           <div class="col-md"><br>
             <input type="text" class="form-control col-md-6" placeholder="Tìm kiếm theo tên.." name="search">
-            <i class="fa fa-search"></i>
+            <i class="fa fa-search search"></i>
           </div>
 
           <ul class="nav nav-tabs col-md-12">
@@ -253,7 +234,7 @@
             <button type="submit" class=" btn_search"><i class="fa fa-search"></i></button>
           </div> -->
 
-          <div class="form-group col-md-4">
+          <div class="form-group col-md-5">
               <select class="form-control" id="sel1">
                 <option>Theo tên</option>
                 <option>Theo tỉnh</option>
@@ -261,8 +242,8 @@
               </select>
           </div>
 
-          <div class="col-md-12">
-            <span>Số lượng công trình có camera:<span class="num_cam">38</span></span>
+          <div class="col-md-12 so_CMR">
+            <span num_ct_camera>Số lượng công trình có camera:<span class="num_cam"> 38</span></span>
           </div>
 
           <div class="panel-group col-md-12">
@@ -277,7 +258,8 @@
 
           <div class="panel-group col-md-12">
             <div class="panel panel-primary">
-              <div class="panel-heading"><span class="place">2. Cầu Đuống</span> 
+              <div class="panel-heading"><span class="place">2. Cầu Đuống</span>
+
               </div>
               <div class="panel-body">
                 <img src="http://125.212.233.207:8032/GetJPEGFrame.aspx?req=0ea6d073026aea0cdcaff60d46e298b7-b83f5de7d14a39fa0166be735cf7363b&PAM=ABC&NoCache=17">
@@ -288,12 +270,110 @@
           <div class="panel-group col-md-12">
             <div class="panel panel-primary">
               <div class="panel-heading"><span class="place">3. Cầu Long Biên</span>
+
               </div>
               <div class="panel-body">
                 <img src="http://125.212.233.207:8032/GetJPEGFrame.aspx?req=5e6155178b8bb141e8080d53ed17a601-5e102be9d53a50b83687b52df02cbedd&PAM=ABC&NoCache=5">
               </div>
             </div>
           </div>
+
+
+          <!-- Modal -->
+          <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal"><i class="fas fa-times-circle"></i></button>
+                  <h4 class="modal-title"><i class="fab fa-fort-awesome"></i> Công trình hồ chứa bản vẽ</h4>
+                </div>
+                <div class="modal-body modules">
+                  <ul class="nav nav-pills">
+                    <li class="active col-md-3"><a data-toggle="pill" href="#1" class="tab_module">SL QUAN TRẮC</a></li>
+                    <li class="col-md-4 tab_module"><a data-toggle="pill" href="#2" class="tab_module">THÔNG TIN CHUNG</a></li>
+                    <li class="col-md-4 tab_module"><a data-toggle="pill" href="#3" class="tab_module">BẢN VẼ CÔNG TRÌNH</a></li>
+                  </ul>
+                  
+                  <div class="tab-content " >
+                    <div id="1" class="tab-pane fade in active">
+                      <span class="data_update">
+                        <center class="data_update">Dữ liệu cập nhật lúc 19:20:21 ngày 26/10/2018</center>
+                      </span>
+
+                      <div class="panel-group">
+                        <div class="panel panel-primary">
+                          <div class="panel-heading num_view_lake">Số Liệu Quan Trắc Hồ</div>
+                          <div class="panel-body" style="color: #6d6b6b">
+                            <div class="col-md-6">
+                              <label for="usr" class="col-md-6 tit_modules">Thời gian</label>
+                              <div class="col-md-6">
+                                <input type="text" class="form-control form_modules" id="usr" placeholder="26/10/2018">
+                              </div>
+
+                              <label for="usr" class="col-md-6 tit_modules">Lượng mưa</label>
+                              <div class="col-md-6">
+                                <input type="text" class="form-control form_modules" id="usr" placeholder="79.3">
+                              </div>
+
+                              <label for="usr" class="col-md-6 tit_modules">Tổng Q xả (m3/s)</label>
+                              <div class="col-md-6">
+                                <input type="text" class="form-control form_modules" id="usr" placeholder="199.31">
+                              </div>
+
+                              <label for="usr" class="col-md-6 tit_modules">Mực nước hạ lưu(m)</label>
+                              <div class="col-md-6">
+                                <input type="text" class="form-control form_modules" id="usr" placeholder="100">
+                              </div>
+
+                              
+
+                            </div>
+
+                            <div class="col-md-6">
+                              <label for="usr" class="col-md-6 tit_modules">Tổng Q đến (m3/s)</label>
+                              <div class="col-md-6">
+                                <input type="text" class="form-control form_modules" id="usr" placeholder="100">
+                              </div>
+
+                              <label for="usr" class="col-md-6 tit_modules">Số cửa xả đáy mở</label>
+                              <div class="col-md-6">
+                                <input type="text" class="form-control form_modules" id="usr" placeholder="100">
+                              </div>
+
+                              <label for="usr" class="col-md-6 tit_modules">Số cửa xả mặt mở</label>
+                              <div class="col-md-6">
+                                <input type="text" class="form-control form_modules" id="usr" placeholder="100">
+                              </div>
+
+                              <label for="usr" class="col-md-6 tit_modules">Mực nước thượng lưu (m)</label>
+                              <div class="col-md-6">
+                                <input type="text" class="form-control form_modules" id="usr" placeholder="100">
+                              </div>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="2" class="tab-pane fade">
+                      <h3>Nothing</h3>
+                    </div>
+                    <div id="3" class="tab-pane fade">
+                      <span>
+                        <h4>Quý khách vui lòng đăng nhập để được xem thông tin hồ sơ công trình!</h4>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
 
       </div>
@@ -301,7 +381,7 @@
   </div>
 
 
-
+<!-- Vertical sidenav toggle -->
 <script type="text/javascript">
     $(document).ready(function () {
         w3.includeHTML(init);
@@ -314,6 +394,7 @@
     }
 </script>
 
+<!-- Design tab -->
 <script>
   function openPage(pageName,elmnt,color) {
       var i, tabcontent, tablinks;
@@ -336,7 +417,7 @@
 <!-- view more camera bằng jquery -->
 <script type="text/javascript">
   $(function(){
-    $('span.place:lt(10)').append('<a href="javascript:void(0)" class="pull-right view_more">Xem chi tiết</a>'
+    $('span.place:lt(10)').append('<a href="#" class="pull-right view_more" data-toggle="modal" data-target="#myModal" id="l2">Xem chi tiết</a>'
         );
 
     $('span.place:lt(10)').prepend('<img src="https://dulieu.phongchongthientai.vn/Content/Images/Icon/Global.png"> '
@@ -454,9 +535,9 @@
     $('#myTree').after('SELECTED ITEMS: ' + JSON.stringify( $('#myTree').tree('selectedItems') ) + '<br>' );
     });
 
-    $('#myTree').on('disclosedFolder.fu.tree closed.fu.tree', function(event, parentData) {
-    // insert JSON text of selected items after tree
-    $('#myTree').after('OPENED/CLOSED FOLDER DATA: ' + JSON.stringify( parentData ) + ' ' );
+    // $('#myTree').on('disclosedFolder.fu.tree closed.fu.tree', function(event, parentData) {
+    // // insert JSON text of selected items after tree
+    // $('#myTree').after('OPENED/CLOSED FOLDER DATA: ' + JSON.stringify( parentData ) + ' ' );
 </script>
 
 
